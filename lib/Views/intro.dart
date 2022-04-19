@@ -57,21 +57,40 @@ class _IntroState extends State<Intro> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Send money",
-                          style: Utilities.fontStyle(
-                              15, FontWeight.w400, const Color(0xff717E95)),
-                        ),
+                        AnimatedSwitcher(
+                            switchInCurve: Curves.fastLinearToSlowEaseIn,
+                            duration: const Duration(milliseconds: 300),
+                            child: slideNo == 0
+                                ? Text(
+                                    "Send money",
+                                    key: ValueKey<int>(slideNo),
+                                    style: Utilities.fontStyle(
+                                        15,
+                                        FontWeight.w400,
+                                        const Color(0xff717E95)),
+                                  )
+                                : slideNo == 1
+                                    ? Text(
+                                        "Receive money",
+                                        key: ValueKey<int>(slideNo),
+                                        style: Utilities.fontStyle(
+                                            15,
+                                            FontWeight.w400,
+                                            const Color(0xff717E95)),
+                                      )
+                                    : Text(
+                                        "Earn points",
+                                        key: ValueKey<int>(slideNo),
+                                        style: Utilities.fontStyle(
+                                            15,
+                                            FontWeight.w400,
+                                            const Color(0xff717E95)),
+                                      )),
                         Padding(
                           padding: const EdgeInsets.only(right: 80),
                           child: AnimatedSwitcher(
                               switchInCurve: Curves.fastLinearToSlowEaseIn,
                               duration: const Duration(milliseconds: 300),
-                              // transitionBuilder:
-                              //     (Widget child, Animation<double> animation) {
-                              //   return ScaleTransition(
-                              //       child: child, scale: animation);
-                              // },
                               child: slideNo == 0
                                   ? Text(
                                       "It was brought up in conversation and from that moment, I was couldn’t stop",
@@ -152,10 +171,19 @@ class _IntroState extends State<Intro> {
                           children: [
                             Visibility(
                               visible: slideNo != 2,
-                              child: Text(
-                                "Skip now",
-                                style: Utilities.fontStyle(15, FontWeight.w400,
-                                    const Color(0xff717E95)),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const Login()),
+                                      (route) => false);
+                                },
+                                child: Text(
+                                  "Skip now",
+                                  style: Utilities.fontStyle(15,
+                                      FontWeight.w400, const Color(0xff717E95)),
+                                ),
                               ),
                             ),
                             GestureDetector(

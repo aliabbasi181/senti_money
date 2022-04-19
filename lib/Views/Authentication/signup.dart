@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:senti/Views/Authentication/choose_account.dart';
-import 'package:senti/Views/Authentication/signup.dart';
+import 'package:senti/Views/Authentication/pin_code.dart';
+import 'package:senti/Views/Authentication/login.dart';
 import 'package:senti/utilities.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class Signup extends StatefulWidget {
+  const Signup({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _LoginState extends State<Login> {
+class _SignupState extends State<Signup> {
   bool _hidePassword = true;
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _LoginState extends State<Login> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Login",
+                          "Sign up",
                           style: Utilities.fontStyle(
                               24, FontWeight.w700, Colors.black),
                         ),
@@ -114,15 +114,14 @@ class _LoginState extends State<Login> {
                         const SizedBox(
                           height: 20,
                         ),
-                        GestureDetector(
-                          onTap: () async {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) =>
-                                  chooseAccountDialog(
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
                                 context,
-                              ),
-                            );
+                                MaterialPageRoute(
+                                    builder: (context) => CreatePinCode(
+                                          pin_type: "signup",
+                                        )));
                           },
                           child: Container(
                             width: Utilities.getSize(context).width,
@@ -131,7 +130,7 @@ class _LoginState extends State<Login> {
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(6)),
                             child: Text(
-                              "Login",
+                              "Sign up",
                               textAlign: TextAlign.center,
                               style: Utilities.fontStyle(
                                   16, FontWeight.bold, Colors.white),
@@ -156,7 +155,7 @@ class _LoginState extends State<Login> {
                                 width: 20,
                               ),
                               Center(
-                                child: Text("Login with Google",
+                                child: Text("Sign up with Google",
                                     textAlign: TextAlign.center,
                                     style: Utilities.fontStyle(
                                         16, FontWeight.bold, Colors.black)),
@@ -170,26 +169,22 @@ class _LoginState extends State<Login> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "New to Senti?",
+                                "Already have account?",
                                 style: Utilities.fontStyle(14, FontWeight.w400,
                                     const Color(0xffA4A2A2)),
                               ),
                               TextButton(
                                   onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Signup()));
+                                    Navigator.pop(context);
                                   },
-                                  child: Text("Sign up",
+                                  child: Text("Login",
                                       style: Utilities.fontStyle(
                                           14, FontWeight.w600, Colors.black)))
                             ],
                           ),
                         ),
                         Text(
-                          "By clicking “Login” you agree to Senti’s Terms of service and privacy policy",
+                          "By clicking “Sign up” you agree to Senti’s Terms of service and privacy policy",
                           textAlign: TextAlign.center,
                           style: Utilities.fontStyle(
                               14, FontWeight.w300, const Color(0xffA4A2A2)),
