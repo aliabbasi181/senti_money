@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:senti/Views/Authentication/signup_success.dart';
 import 'package:senti/Views/Authentication/widgets.dart';
+import 'package:senti/constants.dart';
 import 'package:senti/utilities.dart';
 
 class EnterPersonDetails extends StatefulWidget {
@@ -203,7 +204,7 @@ class _EnterPersonDetailsState extends State<EnterPersonDetails> {
                     width: Utilities.getSize(context).width,
                     padding: const EdgeInsets.all(14),
                     decoration: BoxDecoration(
-                        color: Colors.black,
+                        color: Constants.primaryColor,
                         borderRadius: BorderRadius.circular(6)),
                     child: Text(
                       "Create profile",

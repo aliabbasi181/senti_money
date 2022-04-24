@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:senti/Views/Authentication/choose_country.dart';
 import 'package:senti/Views/Senti/home/home.dart';
+import 'package:senti/Views/Senti/nav.dart';
 import 'package:senti/utilities.dart';
 
 class CreatePinCode extends StatefulWidget {
@@ -21,8 +22,10 @@ class _CreatePinCodeState extends State<CreatePinCode> {
         pin.add(digit);
         if (pin.length == 4) {
           if (widget.pin_type == "login") {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const SentiHome()));
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => const SentiNavBar()),
+                (route) => false);
           } else {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const ChooseCountry()));
@@ -148,7 +151,7 @@ class _CreatePinCodeState extends State<CreatePinCode> {
                     ),
                   ),
                   Center(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         _pinTapped(2);
                       },
@@ -164,7 +167,7 @@ class _CreatePinCodeState extends State<CreatePinCode> {
                     ),
                   ),
                   Center(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         _pinTapped(3);
                       },
@@ -182,7 +185,7 @@ class _CreatePinCodeState extends State<CreatePinCode> {
                 ]),
                 TableRow(children: [
                   Center(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         _pinTapped(4);
                       },
@@ -198,7 +201,7 @@ class _CreatePinCodeState extends State<CreatePinCode> {
                     ),
                   ),
                   Center(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         _pinTapped(5);
                       },
@@ -214,7 +217,7 @@ class _CreatePinCodeState extends State<CreatePinCode> {
                     ),
                   ),
                   Center(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         _pinTapped(6);
                       },
@@ -232,7 +235,7 @@ class _CreatePinCodeState extends State<CreatePinCode> {
                 ]),
                 TableRow(children: [
                   Center(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         _pinTapped(7);
                       },
@@ -248,7 +251,7 @@ class _CreatePinCodeState extends State<CreatePinCode> {
                     ),
                   ),
                   Center(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         _pinTapped(8);
                       },
@@ -264,7 +267,7 @@ class _CreatePinCodeState extends State<CreatePinCode> {
                     ),
                   ),
                   Center(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         _pinTapped(9);
                       },
@@ -282,7 +285,7 @@ class _CreatePinCodeState extends State<CreatePinCode> {
                 ]),
                 TableRow(children: [
                   Center(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         setState(() {});
                       },
@@ -298,7 +301,8 @@ class _CreatePinCodeState extends State<CreatePinCode> {
                     ),
                   ),
                   Center(
-                    child: GestureDetector(
+                    child: InkWell(
+                      radius: 40,
                       onTap: () {
                         _pinTapped(0);
                       },
@@ -314,7 +318,7 @@ class _CreatePinCodeState extends State<CreatePinCode> {
                     ),
                   ),
                   Center(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         setState(() {
                           if (pin.isNotEmpty) {

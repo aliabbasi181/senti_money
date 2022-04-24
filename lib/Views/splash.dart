@@ -29,30 +29,44 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Constants.primaryColor,
-      body: Container(
-        height: Utilities.getSize(context).height,
-        width: Utilities.getSize(context).width,
-        child: Center(
-          child: Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100),
-              border: Border.all(color: Colors.white),
-            ),
-            child: Container(
-                height: 120,
-                width: 120,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(100)),
-                child: Center(
-                    child: Container(
-                  height: 29,
-                  width: 77,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/image/senti_logo.png"))),
-                ))),
+      body: SafeArea(
+        child: Container(
+          height: Utilities.getSize(context).height,
+          width: Utilities.getSize(context).width,
+          child: Stack(
+            children: [
+              Center(
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    border: Border.all(color: Colors.white),
+                  ),
+                  child: Container(
+                      height: 120,
+                      width: 120,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Center(
+                          child: Container(
+                        height: 29,
+                        width: 77,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image:
+                                    AssetImage("assets/image/senti_logo.png"))),
+                      ))),
+                ),
+              ),
+              Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Version 1.0.0",
+                    style:
+                        Utilities.fontStyle(14, FontWeight.w500, Colors.white),
+                  ))
+            ],
           ),
         ),
       ),

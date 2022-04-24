@@ -1,19 +1,18 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:senti/Views/Senti/home/home.dart';
 import 'package:senti/Views/Senti/nav.dart';
 import 'package:senti/constants.dart';
 import 'package:senti/utilities.dart';
 
-class SignupSuccess extends StatefulWidget {
-  const SignupSuccess({Key? key}) : super(key: key);
+class TransactionSuccess extends StatefulWidget {
+  const TransactionSuccess({Key? key}) : super(key: key);
 
   @override
-  State<SignupSuccess> createState() => _SignupSuccessState();
+  State<TransactionSuccess> createState() => _TransactionSuccessState();
 }
 
-class _SignupSuccessState extends State<SignupSuccess> {
+class _TransactionSuccessState extends State<TransactionSuccess> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +47,8 @@ class _SignupSuccessState extends State<SignupSuccess> {
                       const SizedBox(
                         height: 9,
                       ),
-                      Text("You account has successfuly been created Horray!",
+                      Text(
+                          "Transaction success. You have successfuly sent money",
                           textAlign: TextAlign.center,
                           style: Utilities.fontStyle(
                               15, FontWeight.w500, const Color(0xffA4A2A2))),
@@ -72,7 +72,7 @@ class _SignupSuccessState extends State<SignupSuccess> {
                           color: Constants.primaryColor,
                           borderRadius: BorderRadius.circular(6)),
                       child: Text(
-                        "Start using Senti",
+                        "Back home",
                         textAlign: TextAlign.center,
                         style: Utilities.fontStyle(
                             16, FontWeight.bold, Colors.white),

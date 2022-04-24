@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:senti/BLoc/application_bloc.dart';
 import 'package:senti/Controllers/NotificationController.dart';
-import 'package:senti/Views/Authentication/choose_country.dart';
-import 'package:senti/Views/intro.dart';
 import 'package:senti/Views/splash.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 
